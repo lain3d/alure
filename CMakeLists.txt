@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 project(alure)
-set(CMAKE_BUILD_TYPE Debug)
+#set(CMAKE_BUILD_TYPE Debug)
 
 IF(COMMAND CMAKE_POLICY)
     CMAKE_POLICY(SET CMP0003 NEW)
@@ -138,8 +138,8 @@ unset(HAVE_OPUSFILE)
 unset(HAVE_LIBSNDFILE)
 unset(HAVE_MINIMP3)
 
-option(ALURE_INSTALL "Install library and import module" ON)
-option(ALURE_BUILD_SHARED "Build shared library" ON)
+option(ALURE_INSTALL "Install library and import module" OFF)
+option(ALURE_BUILD_SHARED "Build shared library" OFF)
 option(ALURE_BUILD_STATIC "Build static library" ON)
 
 if(NOT ALURE_BUILD_SHARED AND NOT ALURE_BUILD_STATIC)
@@ -147,10 +147,10 @@ if(NOT ALURE_BUILD_SHARED AND NOT ALURE_BUILD_STATIC)
 endif()
 
 option(ALURE_ENABLE_WAVE    "Enables the built-in wave file decoder"     ON)
-option(ALURE_ENABLE_VORBIS  "Enables the built-in libvorbisfile decoder" ON)
-option(ALURE_ENABLE_FLAC    "Enables the built-in FLAC decoder"          ON)
-option(ALURE_ENABLE_OPUS    "Enables the built-in libopusfile decoder"   ON)
-option(ALURE_ENABLE_SNDFILE "Enables the built-in libsndfile decoder"    ON)
+option(ALURE_ENABLE_VORBIS  "Enables the built-in libvorbisfile decoder" OFF)
+option(ALURE_ENABLE_FLAC    "Enables the built-in FLAC decoder"          OFF)
+option(ALURE_ENABLE_OPUS    "Enables the built-in libopusfile decoder"   OFF)
+option(ALURE_ENABLE_SNDFILE "Enables the built-in libsndfile decoder"    OFF)
 option(ALURE_ENABLE_MINIMP3 "Enables the built-in MINIMP3 decoder"       ON)
 
 if(ALURE_ENABLE_WAVE)
@@ -273,7 +273,7 @@ if(ALURE_INSTALL)
 endif()
 
 
-option(ALURE_BUILD_EXAMPLES "Build example programs" ON)
+option(ALURE_BUILD_EXAMPLES "Build example programs" OFF)
 if(ALURE_BUILD_EXAMPLES)
     add_executable(alure-enum examples/alure-enum.cpp)
     target_compile_options(alure-enum PRIVATE ${CXX_FLAGS})

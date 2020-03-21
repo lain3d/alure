@@ -23,6 +23,5 @@ cmake -G"Unix Makefiles" \
   -DUSE_ASM=FALSE \
   $1 \
   ..
-
 make -j$NCPU
 
